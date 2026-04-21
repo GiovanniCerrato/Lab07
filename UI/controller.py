@@ -51,16 +51,7 @@ class Controller:
         situazioniMese = [s for s in self._allSituazioni if (self._mese==s.data.month and s.data.day<=15)]
         situazioniMese.sort(key=lambda s:s.data)
 
-        for i in range(1,16):
-            situazioniGiorno = []
-            for s in situazioniMese:
-                if s.data.day == i:
-                    situazioniGiorno.append(s)
-                if len(situazioniGiorno) == 3:
-                    break
-            umiditaMinimaGiorno = min([s.umidita for s in situazioniGiorno])
-        self.recursion(situazioniMese)
-        return
+
 
     def read_mese(self, e):
         self._mese = int(e.control.value)
